@@ -1,0 +1,80 @@
+
+// Function Interface
+#define function setNumber(uint256) nonpayable returns()
+// Function selector 0x3fb5c1cb
+// Calldata 36-byte 4-bytes function selector, 32-bytes for arguments 0x3f5b5c1b0000000000000000000000000000000000000000000000000000000000000008  
+
+#define function getNumber() view returns()
+// Function selector 0xf2c9ecd8
+// Calldata 0xf2c9ecd8
+
+
+#define constant NUMBER_STORAGE_SLOT = FREE_STORAGE_POINTER() // NEXT SLOT
+// This defines a constant called `NUMBER` that represents the storage slot for the variable `number`.
+// The value `FREE_STORAGE_POINTER()` is used to dynamically determine the next available storage slot for the variable.
+
+
+#define macro SET_Number() = takes(0) returns(0){
+    0x04                // This is the offset in the calldata where the value is located (4th byte in calldata).
+    calldataload        // Loads the calldata starting from the specified offset (0x04).
+    [NUMBER_STORAGE_SLOT]            // This is the storage location (slot) where the value will be stored.
+    sstore              // Stores the loaded calldata value at the location specified by `NUMBER`.
+    stop                // Stops the execution of the macro. The function ends here.
+}
+
+#define macro GET_Number() = takes(0) returns(0){
+    [NUMBER_STORAGE_SLOT]            // This is the storage location (slot) where the value will be read from.
+    sload               // Loads the value from the storage slot `NUMBER`.
+    0x00                // This specifies the memory location (0x00) where the value will be stored.
+    mstore              // Stores the loaded value into memory at location `0x00`.
+    
+    0x20                // This is the length of the data to be returned. In this case, it's 32 bytes (0x20 in hexadecimal).
+    0x00                // Memory Slot //This specifies the starting memory location of the value to be returned (0x00).
+    return              // Returns the value from memory starting at location `0x00` with length `0x20` (32 bytes).
+}
+
+#define macro MAIN() = takes(0) returns(0){
+    // Function Dispatcher 
+    0x00                        // [0] offset of call data
+    calldataload                // [1st 32 bytes from call data] 
+    0xE0                        // Parsing the function selector from call data TOP of Stack [shifted bits in hex + 1st 32 bytes from call data]
+    shr                         // Shift the bits, the function selector is now at the top of the stack
+
+    dup1                        // Duplicate the top element of the stack
+    __FUNC_SIG(setNumber)       // Load the function selector for `setNumber` function onto the stack
+    eq                          // Compare the duplicated function selector with the `setNumber` function selector
+    updateJump                  // If they match, jump to the `updateJump` label
+    jumpi
+
+    dup1                        // Duplicate the top element of the stack again
+    __FUNC_SIG(getNumber)       // Load the function selector for `getNumber` function onto the stack
+    eq                          // Compare the duplicated function selector with the `getNumber` function selector
+    readJump                    // If they match, jump to the `readJump` label
+    jumpi
+
+    // Handle invalid function selector
+    0x08c379a0                  // ABI signature for Error(string)
+    0x00                        // Memory offset 0x00
+    mstore                      // Store the signature
+
+    0x20                        // Offset for string length
+
+    0x16                        // Length of string "Invalid function selector" (22 bytes)
+    0x20                        // Memory offset 0x20
+    mstore                      // Store string length
+
+    0x496e76616c69642066756e6374696f6e2073656c6563746f72 // Hex of "Invalid function selector"
+    0x40                        // Memory offset 0x40
+    mstore                      // Store string data
+    
+    0x00                        // Memory offset
+    0x60                        // Total length (96 bytes)
+    revert                      // Revert with data
+
+
+    updateJump:                 // If `setNumber` function selector was matched, jump here
+        SET_Number()            // Call the `SET_Number` macro
+    readJump:                   // If `getNumber` function selector was matched, jump here
+        GET_Number()            // Call the `GET_Number` macro
+}
+
