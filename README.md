@@ -1,37 +1,39 @@
-# Web3 and Blockchain Development Branch (`master`)
+# Web3 & Blockchain Projects — Production Branch (`main`)
 
-⚠️ **This branch is dedicated to active development of Web3 and blockchain-related features.** For stable and production-ready code, please refer to the `main` branch.
-
----
-
-## Overview
-
-This branch serves as the primary workspace for ongoing development, testing, and experimentation within the context of decentralized applications (dApps) and blockchain integrations.  
-Changes committed here may be incomplete, unstable, or under active testing.
+Welcome to the official repository of my Web3 and blockchain experiments, decentralized applications (DApps), and development tools.
+This repository serves as the main production branch, where all finalized and thoroughly tested Web3 projects are housed.
 
 ---
 
-## Purpose
+## 🚀 Overview
 
-- **Isolate experimental and development work from production.**
-- **Iterate on smart contract logic, Web3 integrations, and backend connectivity.**
-- **Safely explore new ideas before promotion to the main branch.**
-
----
-
-## Guidelines
-
-- Ensure code is logically structured and tested before committing.
-- Use clear and descriptive commit messages.
-- Create feature branches for major changes.
-- Avoid pushing directly to `main`; use `master` for staging and iteration.
+This workspace is designed to support and showcase multiple decentralized applications and tools.  
+Each project lives in its own subdirectory with a self-contained structure and documentation.
 
 ---
 
-## Notes
+## 📁 Projects
 
-When features in `master` are finalized and verified, they may be merged into `main` as part of a release cycle or production deployment.
+Below are the current projects in this repository:
+
+- [`Web3Counter-dApp`](./Web3Counter-dApp)  
+  A minimal decentralized counter application deployed on the Ethereum Sepolia testnet.  
+  Features wallet connection, smart contract interaction, and transaction feedback.
+
+> More DApps and tools will be added as development continues...
 
 ---
 
-**Maintained by [Youssef Ahmed](https://github.com/Youssefahmed88)**
+## 🧑‍💻 About me
+
+I'm **Youssef Ahmed**, a computer science student, Web3 developer, and security researcher passionate about building decentralized and secure systems.
+
+- GitHub: [Youssefahmed88](https://github.com/Youssefahmed88)  
+- X (formerly Twitter): [@Yousseff0111](https://x.com/Yousseff0111)  
+- LinkedIn: [youssefahmed70](https://www.linkedin.com/in/youssefahmed70)
+
+---
+
+## ❤️ Acknowledgments
+
+Special thanks to the open-source community and the builders behind Web3 infrastructure.
