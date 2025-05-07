@@ -24,7 +24,7 @@ Below are the current projects in this repository:
 
 ---
 
-## 🧑‍💻 About the Developer
+## 🧑‍💻 About me
 
 I'm **Youssef Ahmed**, a computer science student, Web3 developer, and security researcher passionate about building decentralized and secure systems.
 
