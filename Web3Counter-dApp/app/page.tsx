@@ -349,6 +349,10 @@ const handleClearHistory = ()=>{
           </div>
         )}
         </div>
+        <div>
+          <button className="mb-4 mt-6 py-4 px-6 text-sm rounded bg-red-500 text-white font-medium hover:bg-red-600" 
+          onClick={handleClearHistory}>Clear History</button>
+        </div>
     </div>
   );
 }
