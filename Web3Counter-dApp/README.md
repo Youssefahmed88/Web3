@@ -75,6 +75,11 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 
     Increment Counter: Click the "Increment" button to send a transaction and increase the counter value.
 
+## Demo Video
+
+You can watch the demo video of the Web3 Counter DApp here:
+[`Watch the Demo on Google Drive`](https://drive.google.com/file/d/1s_Vu_kGjbFiEUII_ZsEwnkr-RQaVvHQ0/view?usp=drive_link)
+
 ## License
 
 This project is licensed under the MIT License
