@@ -29,7 +29,7 @@ Below are the current projects in this repository:
 I'm **Youssef Ahmed**, a computer science student, Web3 developer, and security researcher passionate about building decentralized and secure systems.
 
 - GitHub: [Youssefahmed88](https://github.com/Youssefahmed88)  
-- X (formerly Twitter): [@Yousseff0111](https://x.com/Yousseff0111)  
+- X (formerly Twitter): [@Yousseff_xyz](https://x.com/Yousseff_xyz)  
 - LinkedIn: [youssefahmed70](https://www.linkedin.com/in/youssefahmed70)
 
 ---
